@@ -144,7 +144,7 @@ class OrderManagementController extends Controller{
                     $purchaseItem->size_name  = isset($item['size_name']) ? $item['size_name']: '';
                     $purchaseItem->quantity   = isset($item['quantity']) ? $item['quantity'] : '' ;
                     $purchaseItem->unit_name  = isset($item['unit_name']) ? $item['unit_name'] : '';
-                    $purchaseItem->rate       = isset($item['rate']) ? $item['rate'] : 'hello';
+                    $purchaseItem->rate       = isset($item['rate']) ? $item['rate'] : '';
                     $purchaseItem->save();
                 }
             }
