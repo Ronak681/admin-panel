@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('comments')) {
-            Schema::create('comments', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('post_id')->constrained()->onDelete('cascade');
                 $table->string('name');
-                $table->string('email');
-                $table->string('phone.No');
-                $table->string('comments');
+                $table->string('email')->unique();
+                $table->timestamp('verified_at')->nullable();
+                $table->string('password');
+                $table->string('role');
+                $table->rememberToken();
                 $table->timestamps();
             });
-        }
+        
     }
 
     /**
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('users');
     }
 };

@@ -26,35 +26,23 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="about__pic">
-                        <img src="{{asset('img/about/about-us.jpg')}}" alt="">
+                        <img src="{{ asset('uploads/about/' . ($about->first()->image ?? '')) }}" alt="">
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="about__item">
-                        <h4>Who We Are ?</h4>
-                        <p>Contextual advertising programs sometimes have strict policies that need to be adhered too.
-                        Let’s take Google as an example.</p>
+                @foreach($about as $item)
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="about__item">
+                            <h4>{{ $item->heading }}</h4>
+                            <p>{{ $item->description }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="about__item">
-                        <h4>Who We Do ?</h4>
-                        <p>In this digital generation where information can be easily obtained within seconds, business
-                        cards still have retained their importance.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="about__item">
-                        <h4>Why Choose Us</h4>
-                        <p>A two or three storey house is the ideal way to maximise the piece of earth on which our home
-                        sits, but for older or infirm people.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+    
     <!-- About Section End -->
 
     <!-- Testimonial Section Begin -->

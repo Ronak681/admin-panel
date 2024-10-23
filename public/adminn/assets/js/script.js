@@ -35,6 +35,8 @@ $(document).ready(function() {
                         const supplierUrl = /\/admin\/suppliers\/(\d+)/;
                         const categoryUrl =  /\/product\/category\/delete\/(\d+)/;
                         const productUrl =  /\/product\/delete\/(\d+)/;
+                        const aboutUrl =  /\/admin\/about\/delete\/(\d+)/;
+
                         if (orderUrl.test(url)) {
                             successMessage = "Order deleted successfully.";
                         } else if (supplierUrl.test(url)) {
@@ -43,6 +45,8 @@ $(document).ready(function() {
                             successMessage = "Category deleted successfully.";
                         } else if (productUrl.test(url)) {
                             successMessage = "product deleted successfully.";
+                        } else if (aboutUrl.test(url)) {
+                            successMessage ="deleted successfully.";
                         }
                        swal("Deleted!", successMessage, "success").then(() => {
                             supplierRow.remove(); 

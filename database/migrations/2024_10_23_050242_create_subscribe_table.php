@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subscribe', function (Blueprint $table) {
-            $table->id();
-            $table->string('email');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('subscribe')) {
+
+            Schema::create('subscribe', function (Blueprint $table) {
+                $table->id();
+                $table->string('email');
+                $table->timestamps();
+            });
+        }
     }
 
     /**

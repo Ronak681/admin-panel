@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('icons', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->string('path');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('icons')) {
+            Schema::create('icons', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('category_id')->constrained()->onDelete('cascade');
+                $table->string('path');
+                $table->timestamps();
+            });
+      }
     }
 
     /**

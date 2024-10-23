@@ -14,6 +14,8 @@ use App\Http\Controllers\admin\UserManagementController;
 use App\Http\Controllers\admin\OrderManagementController;
 use App\Http\Controllers\admin\SupplierController;
 use App\Http\Controllers\admin\HeaderController;
+use App\Http\Controllers\admin\AboutController;
+
 
 use App\Http\Controllers\frontendController\HomeController;
 
@@ -182,7 +184,7 @@ Route::get('/blog-details/{id}',[HomeController::class,'Blogdetails'])->name('Bl
 Route::get('/product-details',[HomeController::class,'shoppingdetails'])->name('shopping-details');
 Route::get('/product/checkout',[HomeController::class,'checkout'])->name('checkout');
 Route::post('/blog/details/{post}/comment',[HomeController::class,'comment'])->name('save.comment');
-Route::post('/blog/subscribe',[HomeController::class,'subscribe'])->name('subscribe');
+Route::post('/blog/subscribe',[HomeController::class,'subscribe'])->name('subscribe.save');
 
 //backend routes
 Route::get('/admin/hero/list',[HeaderController::class,'headerList'])->name('headerlist');
@@ -191,6 +193,18 @@ Route::post('/admin/hero/save',[HeaderController::class,'save'])->name('save.her
 Route::get('/admin/hero/edit/{id}',[HeaderController::class,'edit'])->name('edit');
 Route::put('/admin/hero/update/{id}',[HeaderController::class,'update'])->name('update');
 Route::delete('/admin/hero/delete',[HeaderController::class,'deleteImage'])->name('deleteImage');
+//about Routes
+Route::get('/admin/about/list',[AboutController::class,'index'])->name('about.list');
+Route::get('/admin/about/add',[AboutController::class,'add'])->name('about.add');
+Route::post('/admin/about/save',[AboutController::class,'save'])->name('about.save');
+Route::get('/admin/about/edit/{id}',[AboutController::class,'edit'])->name('about.edit');
+Route::put('/admin/about/update/{id}',[AboutController::class,'save'])->name('about.update');
+Route::delete('/admin/about/delete/{id}',[AboutController::class,'delete'])->name('about.delete');
+
+
+
+
+
 
 
 

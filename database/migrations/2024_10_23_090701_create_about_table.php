@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('comments')) {
-            Schema::create('comments', function (Blueprint $table) {
+        if (!Schema::hasTable('about')) {
+            Schema::create('about', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('post_id')->constrained()->onDelete('cascade');
-                $table->string('name');
-                $table->string('email');
-                $table->string('phone.No');
-                $table->string('comments');
+                $table->string('heading');
+                $table->string('description');
+                $table->string('image');
+
                 $table->timestamps();
             });
         }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('about');
     }
 };

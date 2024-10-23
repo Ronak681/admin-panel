@@ -140,34 +140,5 @@
         </div>
     </section>
     <!-- Blog Details Section End -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            @if(Session::has('success'))
-                toastr.success('{{ Session::get('success') }}');
-            @endif
-        
-            @if(Session::has('error'))
-                toastr.error('{{ Session::get('error') }}');
-            @endif
-
-            toastr.options = {
-                "closeButton": true,
-                "debug": false,
-                "newestOnTop": true,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            };
-        });
-    </script>
+  
 @endsection

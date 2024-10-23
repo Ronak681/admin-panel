@@ -122,7 +122,7 @@ class OrderManagementController extends Controller{
         
         if(!empty($request->item_data)){
             foreach ($request->item_data as $item) {
-                        
+                      //  dd($request->item_data);
                 if (isset($item['item_tbl_id'])) {
                     $purchaseItem             =  PurchaseNewItem::findOrFail($item['item_tbl_id']);
                     $purchaseItem->style_name = isset($item['style_name']) ? $item['style_name'] : '' ;

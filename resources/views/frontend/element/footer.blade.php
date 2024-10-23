@@ -37,14 +37,18 @@
                     <h6>NewLetter</h6>
                     <div class="footer__newslatter">
                         <p>Be the first to know about new arrivals, look books, sales & promos!</p>
-                        <form action="{{ route('subscribe')}}" method="POST">
+                        <form id="subscribe-form" action="{{ route('subscribe.save') }}" method="POST">
                             @csrf
-                            <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Your email">
+                            <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Your email" >
+                            
                             @error('email')
-                              <p class="invalid-feedback text-danger">{{ $message }}</p>
+                                <p class="invalid-feedback text-danger">{{ $message }}</p>
                             @enderror
-                            <button type="submit"><span class="icon_mail_alt"></span></button>
+                        
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
                         </form>
+                        <div id="response-message"></div>
+
                     </div>
                 </div>
             </div>
@@ -66,3 +70,29 @@
         </div>
     </div>
 </footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+    $('#subscribe-form').on('submit', function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            success: function(response) {
+                toastr.success(response.success);
+                $('#subscribe-form')[0].reset();
+            },
+            error: function(xhr) {
+                let errors = xhr.responseJSON.errors;
+                let errorMessage = '';
+                for (let error in errors) {
+                    errorMessage += errors[error][0] + '<br>'; 
+                }
+                toastr.error(errorMessage);
+            }
+        });
+    });
+});
+</script>

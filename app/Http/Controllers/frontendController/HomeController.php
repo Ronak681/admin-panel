@@ -14,6 +14,8 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Comments;
 use App\Models\Subscribe;
+use App\Models\About;
+
 
 
 
@@ -42,7 +44,8 @@ class HomeController extends Controller
         return view('frontend.Contact');
     }
     public function About(){
-        return view('frontend.About');
+        $about = About::where('is_deleted', 0)->get();
+        return view('frontend.About',compact('about'));
     }
     public function ShoppingCart(){
         return view('frontend.Shopping-cart');
@@ -80,19 +83,23 @@ class HomeController extends Controller
     $comments->save();
     return redirect()->route('Blog.details',$post->id)->with('success','comment added successfully');
    }
-   public function subscribe(Request $request){
-        $rules = [
-            'email' =>'required|email',
-        ];
-        $validator = Validator::make($request->all(),$rules);
-        if($validator->fails()){
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        $subscribe = new Subscribe();
-        $subscribe->email = $request->email;
-        $subscribe->save();
-        return redirect()->route('home')->with('success','subscribed successfully!');
+   public function subscribe(Request $request) {
+    $rules = [
+        'email' => 'required|email',
+    ];
+    $validator = Validator::make($request->all(), $rules);
+    
+    if ($validator->fails()) {
+        return response()->json(['errors' => $validator->errors()], 422);
+    }
 
-   }
+    $subscribe = new Subscribe();
+    $subscribe->email = $request->email;
+    $subscribe->save();
+
+    return response()->json(['success' => 'Subscribed successfully!']);
+}
+
+
   
 }

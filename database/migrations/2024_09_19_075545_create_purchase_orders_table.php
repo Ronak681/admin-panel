@@ -19,9 +19,12 @@ return new class extends Migration
             $table->date('create_date');
             $table->string('serial_number');
             $table->string('remarks')->nullable();
-            $table->string('order_number')->nullable(); // If needed
+            $table->string('order_number')->nullable();
+            $table->boolean('is_deleted');
+
             $table->timestamps();
         });
+    
     }
 
     /**

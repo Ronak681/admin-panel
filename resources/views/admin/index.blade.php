@@ -353,6 +353,12 @@
                 <i class="mdi mdi-eye menu-icon"></i> <!-- Updated Icon -->
             </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('about.list') }}">
+              <span class="menu-title">About</span>
+              <i class="mdi mdi-eye menu-icon"></i> <!-- Updated Icon -->
+          </a>
+      </li>
     </ul>
 </nav>
 
