@@ -37,8 +37,12 @@
                     <h6>NewLetter</h6>
                     <div class="footer__newslatter">
                         <p>Be the first to know about new arrivals, look books, sales & promos!</p>
-                        <form action="#">
-                            <input type="text" placeholder="Your email">
+                        <form action="{{ route('subscribe')}}" method="POST">
+                            @csrf
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Your email">
+                            @error('email')
+                              <p class="invalid-feedback text-danger">{{ $message }}</p>
+                            @enderror
                             <button type="submit"><span class="icon_mail_alt"></span></button>
                         </form>
                     </div>

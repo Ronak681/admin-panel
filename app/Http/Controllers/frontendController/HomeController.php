@@ -13,6 +13,8 @@ use App\Models\Heading;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Comments;
+use App\Models\Subscribe;
+
 
 
 
@@ -77,6 +79,20 @@ class HomeController extends Controller
 
     $comments->save();
     return redirect()->route('Blog.details',$post->id)->with('success','comment added successfully');
+   }
+   public function subscribe(Request $request){
+        $rules = [
+            'email' =>'required|email',
+        ];
+        $validator = Validator::make($request->all(),$rules);
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $subscribe = new Subscribe();
+        $subscribe->email = $request->email;
+        $subscribe->save();
+        return redirect()->route('home')->with('success','subscribed successfully!');
+
    }
   
 }

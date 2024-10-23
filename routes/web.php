@@ -182,6 +182,7 @@ Route::get('/blog-details/{id}',[HomeController::class,'Blogdetails'])->name('Bl
 Route::get('/product-details',[HomeController::class,'shoppingdetails'])->name('shopping-details');
 Route::get('/product/checkout',[HomeController::class,'checkout'])->name('checkout');
 Route::post('/blog/details/{post}/comment',[HomeController::class,'comment'])->name('save.comment');
+Route::post('/blog/subscribe',[HomeController::class,'subscribe'])->name('subscribe');
 
 //backend routes
 Route::get('/admin/hero/list',[HeaderController::class,'headerList'])->name('headerlist');
