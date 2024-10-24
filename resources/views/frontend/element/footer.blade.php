@@ -25,7 +25,7 @@
                 <div class="footer__widget">
                     <h6>Shopping</h6>
                     <ul>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="{{ route('Contact')}}">Contact Us</a></li>
                         <li><a href="#">Payment Methods</a></li>
                         <li><a href="#">Delivary</a></li>
                         <li><a href="#">Return & Exchanges</a></li>

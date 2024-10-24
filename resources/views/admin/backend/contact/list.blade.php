@@ -14,17 +14,15 @@
                   
                      <div class="col-md-11">
                        
-                        <div class="card">
-                            
-                           
+                        <div class="card"> 
                          <div class="card-border-0 shadow-lg my-5"> 
                             <div class="text-end mb-3">
-                                <a href="{{ route('add')}}" class="btn btn-primary">Add</a>
+                                <a href="{{ route('contact.add')}}" class="btn btn-primary">Add</a>
                             </div>
 
                              <div class="card-header bg-dark d-flex-justify-content-center aligin-items-center">
   
-                               <h3 class="text-white pt-2"> Headings </h3>
+                               <h3 class="text-white pt-2"> Contact List </h3>
                                
                              </div>
                              
@@ -34,26 +32,29 @@
                                 <table class="table">
                                     <tr>
                                         
-                                        <th>Image</th>
-                                        <th> heading</th>
-                                        <th>title</th>
-                                        <th>Description</th> 
+                                        <th> ID</th>
+                                       
+                                        <th>phone No.</th>
+                                        <th>Address</th> 
+                                        <th>Country</th>
+
                                         <th>Action</th>
                                    </tr>
                                    
-                                   @if($header->isNotEmpty())
-                                    @foreach($header as $header)
+                                   @if($contact->isNotEmpty())
+                                    @foreach($contact as $contact)
                                         <tr>
+                                          
+                                            <td>{{$contact->id}}</td>
+                                            <td>{{$contact->phone}}</td>
+                                           
+
+                                            <td>{{$contact->address}}</td>
+                                            <td>{{$contact->country}}</td>
                                             <td>
-                                                <img src="{{ asset('/uploads/hero/' . $header->image) }}"  width="100">
-                                            </td>
-                            
-                                            <td>{{$header->heading}}</td>
-                                            <td>{{$header->title}}</td>
-                                            <td>{{$header->description}}</td>
-                                            <td>
-                                                <a href="{{ route('edit',$header->id)}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                               <a href="{{ route('delete.heading',$header->id)}}" class="text-danger delete-confirm pl-3"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                <a href="{{ route('contact.edit',$contact->id)}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                <a href="{{ route('contact.delete',$contact->id)}}" class=" text-danger delete-confirm pl-3"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach

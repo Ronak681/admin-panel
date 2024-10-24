@@ -29,8 +29,8 @@
 </script>
 </body>
 </html> --}}
-<!DOCTYPE html>
-<html lang="en">
+{{-- <!DOCTYPE html> --}}
+{{-- <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,4 +53,40 @@
     <input type="text" id="delivery_date" />
     <input type="text" id="create_date" />
 </body>
+</html> --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Picker Example</title>
+    <!-- Include CSS and JS for jQuery and Country Select -->
+   
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.css" rel="stylesheet"/>
+
+</head>
+<body>
+    <div class="container">
+        <select  id="country-select" name="country-select" class="form-control bfh-countries" data-country="US" data-flags="true">            <input type="hidden" value="">
+            <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
+              <span class="bfh-selectbox-option input-medium" data-option=""></span>
+              <b class="caret"></b>
+            </a>
+        </select>
+         
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.js"></script>
+    <!-- jQuery Country Select -->
+
+    <script>
+  $(document).ready(function(){
+    $('#country-select').bfhcountries({country: 'TN'});
+});
+    </script>
+</body>
 </html>
+

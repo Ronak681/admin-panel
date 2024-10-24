@@ -46,7 +46,7 @@
     <!-- About Section End -->
 
     <!-- Testimonial Section Begin -->
-    <section class="testimonial">
+    {{-- <section class="testimonial">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 p-0">
@@ -71,7 +71,7 @@
                 </div>
             </div>'
         </div>
-    </section>
+    </section> --}}
     <!-- Testimonial Section End -->
 
     <!-- Counter Section Begin -->

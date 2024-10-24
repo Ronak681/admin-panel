@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Heading;
@@ -99,6 +101,12 @@ class HeaderController extends Controller
     }
 
     return response()->json(['success' => false, 'message' => 'Image not found.'], 404);
+}
+public function delete($id){
+    $header = Heading::findOrFail($id);
+    $header = Heading::where('id',$id)->update(['is_deleted'=> 1]);
+    return response()->json(['success' => 'heading deleted successfully.']);
+
 }
 
 }

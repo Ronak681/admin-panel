@@ -36,6 +36,8 @@ $(document).ready(function() {
                         const categoryUrl =  /\/product\/category\/delete\/(\d+)/;
                         const productUrl =  /\/product\/delete\/(\d+)/;
                         const aboutUrl =  /\/admin\/about\/delete\/(\d+)/;
+                        const contactUrl =  /\/admin\/contact\/delete\/(\d+)/;
+                        const headerUrl =  /\/admin\/hero\/delete\/(\d+)/;
 
                         if (orderUrl.test(url)) {
                             successMessage = "Order deleted successfully.";
@@ -47,6 +49,10 @@ $(document).ready(function() {
                             successMessage = "product deleted successfully.";
                         } else if (aboutUrl.test(url)) {
                             successMessage ="deleted successfully.";
+                        } else if (contactUrl.test(url)) {
+                            successMessage =" contact deleted successfully.";
+                        } else if (headerUrl.test(url)) {
+                            successMessage =" heading deleted successfully.";
                         }
                        swal("Deleted!", successMessage, "success").then(() => {
                             supplierRow.remove(); 

@@ -51,7 +51,7 @@
                 <div class="mt-2" id="imagePreviewContainer">
                     @if ($header->image)
                         <div class="position-relative">
-                            <img src="{{ asset('/' . $header->image) }}" alt="Current Image" class="img-fluid" style="width: 100%; height: 100px;">
+                            <img src="{{ asset('/uploads/hero/' . $header->image) }}" alt="Current Image" class="img-fluid">
                             <button type="button" class="btn btn-light btn-sm position-absolute top-0 end-0" onclick="remove_Image('{{ $header->image }}')">&times;</button>
                             <input type="hidden" name="existing_images[]" value="{{ $header->image }}">
                         </div>

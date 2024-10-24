@@ -15,6 +15,8 @@
     
     {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> --}}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.css" rel="stylesheet"/>
+
 
     <link rel="stylesheet" href="{{asset('adminn/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('adminn/assets/vendors/ti-icons/css/themify-icons.css')}}">
@@ -61,6 +63,8 @@
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.js"></script>
 
     <script src="{{asset('adminn/assets/vendors/js/vendor.bundle.base.js')}}"></script>
     <script src="{{asset('adminn/assets/js/script.js')}}"></script>
@@ -103,6 +107,9 @@
 
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> --}}
 <script>
+    $(document).ready(function(){
+    $('#country').bfhcountries({country: 'TN'});
+});
 $(document).ready(function() {
 const successMessage = localStorage.getItem('successMessage');
 

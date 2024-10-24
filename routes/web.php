@@ -15,6 +15,8 @@ use App\Http\Controllers\admin\OrderManagementController;
 use App\Http\Controllers\admin\SupplierController;
 use App\Http\Controllers\admin\HeaderController;
 use App\Http\Controllers\admin\AboutController;
+use App\Http\Controllers\admin\ContactController;
+
 
 
 use App\Http\Controllers\frontendController\HomeController;
@@ -185,6 +187,7 @@ Route::get('/product-details',[HomeController::class,'shoppingdetails'])->name('
 Route::get('/product/checkout',[HomeController::class,'checkout'])->name('checkout');
 Route::post('/blog/details/{post}/comment',[HomeController::class,'comment'])->name('save.comment');
 Route::post('/blog/subscribe',[HomeController::class,'subscribe'])->name('subscribe.save');
+Route::post('/contact/message-sent',[HomeController::class,'SendMessage'])->name('sent.message');
 
 //backend routes
 Route::get('/admin/hero/list',[HeaderController::class,'headerList'])->name('headerlist');
@@ -193,6 +196,8 @@ Route::post('/admin/hero/save',[HeaderController::class,'save'])->name('save.her
 Route::get('/admin/hero/edit/{id}',[HeaderController::class,'edit'])->name('edit');
 Route::put('/admin/hero/update/{id}',[HeaderController::class,'update'])->name('update');
 Route::delete('/admin/hero/delete',[HeaderController::class,'deleteImage'])->name('deleteImage');
+Route::delete('/admin/hero/delete/{id}',[HeaderController::class,'delete'])->name('delete.heading');
+
 //about Routes
 Route::get('/admin/about/list',[AboutController::class,'index'])->name('about.list');
 Route::get('/admin/about/add',[AboutController::class,'add'])->name('about.add');
@@ -200,6 +205,14 @@ Route::post('/admin/about/save',[AboutController::class,'save'])->name('about.sa
 Route::get('/admin/about/edit/{id}',[AboutController::class,'edit'])->name('about.edit');
 Route::put('/admin/about/update/{id}',[AboutController::class,'save'])->name('about.update');
 Route::delete('/admin/about/delete/{id}',[AboutController::class,'delete'])->name('about.delete');
+//contact routes
+Route::get('/admin/contact/list',[ContactController::class,'index'])->name('contact.list');
+Route::get('/admin/contact/add',[ContactController::class,'add'])->name('contact.add');
+Route::post('/admin/contact/save',[ContactController::class,'save'])->name('contact.save');
+Route::get('/admin/contact/edit/{id}',[ContactController::class,'edit'])->name('contact.edit');
+Route::put('/admin/contact/update/{id}',[ContactController::class,'update'])->name('contact.update');
+Route::delete('/admin/contact/delete/{id}',[ContactController::class,'delete'])->name('contact.delete');
+
 
 
 

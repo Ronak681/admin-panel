@@ -175,5 +175,11 @@
               <i class="mdi mdi-eye menu-icon"></i> <!-- Updated Icon -->
           </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('contact.list') }}">
+            <span class="menu-title">Contact</span>
+            <i class="mdi mdi-contacts menu-icon"></i> <!-- Updated Icon -->
+        </a>
+    </li>
     </ul>
 </nav>
