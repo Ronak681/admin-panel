@@ -66,9 +66,10 @@ Route::get('/account/admin',[LoginController::class,'admin'])->name('account.adm
 //admin authenticate
  Route::group(['prefix'=> 'admin'],function(){
     
-       /*  Route::group(['middleware'=>'admin.guest'],function(){
+    //    Route::group(['middleware'=>'admin.guest'],function(){
+           
         
-    });*/
+    // });
     Route::get('/login',[AdminLoginController::class,'index'])->name('admin.login');
     Route::get('/register',[RegisterController::class,'register'])->name('admin.register');
     Route::post('/dashboard',[AdminLoginController::class,'authenticate'])->name('admin.authenticate');      
@@ -214,7 +215,6 @@ Route::get('/admin/contact/edit/{id}',[ContactController::class,'edit'])->name('
 Route::put('/admin/contact/update/{id}',[ContactController::class,'update'])->name('contact.update');
 Route::delete('/admin/contact/delete/{id}',[ContactController::class,'delete'])->name('contact.delete');
 
-Route::get('/admin/contact/list',[ContactController::class,'index'])->name('');
 
 
 
