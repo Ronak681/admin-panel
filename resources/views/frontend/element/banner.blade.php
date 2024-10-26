@@ -1,3 +1,4 @@
+
 <section class="banner spad">
     <div class="container">
         <div class="row">
@@ -12,7 +13,7 @@
                         </div>
                         <div class="banner__item__text">
                             <h2>{{ $banner->title }}</h2>
-                            <a href="#">Shop now</a>
+                            <a href="{{ route('frontend.index')}}">Shop now</a>
                         </div>
                     </div>
                 </div>

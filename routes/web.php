@@ -188,6 +188,7 @@ Route::get('/product/checkout',[HomeController::class,'checkout'])->name('checko
 Route::post('/blog/details/{post}/comment',[HomeController::class,'comment'])->name('save.comment');
 Route::post('/blog/subscribe',[HomeController::class,'subscribe'])->name('subscribe.save');
 Route::post('/contact/message-sent',[HomeController::class,'SendMessage'])->name('sent.message');
+Route::get('/index',[HomeController::class,'index'])->name('frontend.index');
 
 //backend routes
 Route::get('/admin/hero/list',[HeaderController::class,'headerList'])->name('headerlist');
@@ -213,6 +214,7 @@ Route::get('/admin/contact/edit/{id}',[ContactController::class,'edit'])->name('
 Route::put('/admin/contact/update/{id}',[ContactController::class,'update'])->name('contact.update');
 Route::delete('/admin/contact/delete/{id}',[ContactController::class,'delete'])->name('contact.delete');
 
+Route::get('/admin/contact/list',[ContactController::class,'index'])->name('');
 
 
 

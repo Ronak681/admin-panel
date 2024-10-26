@@ -11,7 +11,7 @@
                            <a class="nav-link" href="{{ route('blog.home')}}">Home</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="{{ route('blog.about')}}">About</a>
+                           <a class="nav-link" href="#">About</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link " href="#contact">Contact</a>
@@ -25,7 +25,7 @@
                <div class="menu_main">
                   <ul>
                      <li class="active"><a href="{{ route('blog.home')}}">Home</a></li>
-                     <li><a href="{{ route('blog.about')}}">About</a></li>
+                     {{-- <li><a href="{{ route('blog.about')}}">About</a></li> --}}
                     
                      <li><a href="{{ route('blog.service')}}">Blogs</a></li>
                      <li><a href="#contact">Contact us</a></li>

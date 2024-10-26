@@ -108,13 +108,7 @@ class HomeController extends Controller
             return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
         }
         $message = new Message();
-        $message->name = $request->name;
-        $message->email = $request->email;
-        $message->message = $request->message;
-        $message->save();
         return response()->json(['success' => 'Message Sent successfully!']);
     }
-
-
-  
+    
 }

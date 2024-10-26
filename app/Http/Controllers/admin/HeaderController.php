@@ -4,7 +4,6 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Heading;
@@ -90,12 +89,11 @@ class HeaderController extends Controller
     $header = Heading::where('image', $imageName)->first();
 
     if ($header) {
-        $imagePath = 'img/hero/' . $imageName; // Adjust the path as necessary
-        Storage::delete($imagePath); // Directly delete the image
+        $imagePath = 'img/hero/' . $imageName; 
+        Storage::delete($imagePath); 
 
-        // Clear the image field in the database
-        $header->image = null; // Clear the image field
-        $header->save(); // Save the changes
+        $header->image = null;
+        $header->save(); 
 
         return response()->json(['success' => true, 'message' => 'Image deleted successfully.']);
     }

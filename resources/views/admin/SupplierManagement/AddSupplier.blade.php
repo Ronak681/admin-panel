@@ -82,6 +82,7 @@
             </form>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
 $(document).ready(function() {
@@ -106,11 +107,11 @@ $(document).ready(function() {
                 type: 'POST',
                 data: formData,
                 success: function(response) {
-                        if (response.success) {
-                                localStorage.setItem('successMessage', response.message);
-                                window.location.href = '/admin/supplier/list'; 
-                            }
-                    },
+                    if(response.success) {
+                        localStorage.setItem('successMessage', response.message);
+                        window.location.href = '/admin/supplier/list'; 
+                    }
+                },
                 error: function(xhr) {
                     if (xhr.status === 400) {
                         let errors = xhr.responseJSON.errors;
